@@ -1,0 +1,12 @@
+.{
+    .name = .longfellow_zk,
+    .version = "0.0.0",
+    .fingerprint = 0xf1eaf3b02a7ca06f, // Changing this has security and trust implications.
+    .minimum_zig_version = "0.17.0-dev.1460+35103f57a",
+    .dependencies = .{},
+    .paths = .{
+        "build.zig",
+        "build.zig.zon",
+        "src",
+    },
+}
