@@ -170,7 +170,9 @@ pub fn PrimeField(comptime p: comptime_int) type {
 
         /// Multiplicative inverse, or null for zero.
         pub fn invert(a: Fe) ?Fe {
-            const inv = m.invertPublic(a.fe) orelse return null;
+            if (a.isZero()) return null;
+            const exponent = M.Fe.fromPrimitive(T, m, p - 2) catch unreachable;
+            const inv = m.powPublic(a.fe, exponent) catch unreachable;
             return .{ .fe = inv };
         }
 
