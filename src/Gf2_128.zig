@@ -186,7 +186,7 @@ fn reduce(hi: u128, lo: u128) u128 {
 /// Reduced row echelon form of the subfield basis, for extracting subfield
 /// coordinates: each entry clears one leading bit, and `combs` tracks which
 /// basis elements were combined to produce it.
-const echelon = blk: {
+const echelon: struct { rows: [16]u128, combs: [16]u16, lead: [16]u7 } = blk: {
     @setEvalBranchQuota(10_000_000);
     var rows: [16]u128 = undefined;
     var combs: [16]u16 = undefined;
